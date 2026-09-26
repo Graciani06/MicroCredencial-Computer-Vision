@@ -1,0 +1,8 @@
+.env
+build/
+__pycache__/
+.venv/
+
+# Images written by the programs
+check.png
+gray.png

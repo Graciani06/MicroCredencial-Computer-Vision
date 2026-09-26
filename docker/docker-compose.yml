@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  cv-dev:
+    build:
+      context: .
+      args:
+        USER_UID: "${USER_UID:-1000}"   # definir en docker/.env con `id -u` / `id -g`
+        USER_GID: "${USER_GID:-1000}"
+    image: cv-course:opencv5
+    init: true
+    ipc: host
+    privileged: true                   # acceso a dispositivos del host (webcam)
+    working_dir: /workspace
+    volumes:
+      - ../:/workspace                 # el repo del curso, editable desde el host
+      - /tmp/.X11-unix:/tmp/.X11-unix  # socket X11 del host (también con Wayland vía XWayland)
+      - /dev:/dev                      # todos los dispositivos del host: /dev/video* aparecen
+                                       # aunque no existan al arrancar (hot-plug)
+    environment:
+      - DISPLAY=${DISPLAY}
+    ports:
+      - "127.0.0.1:8888:8888"          # Jupyter
+    stdin_open: true
+    tty: true

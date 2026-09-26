@@ -1,0 +1,41 @@
+{
+    "name": "CV Course (OpenCV 5)",
+    "build": {
+        "dockerfile": "../docker/Dockerfile",
+        "context": "../docker"
+    },
+    "remoteUser": "ubuntu",
+    "updateRemoteUserUID": true,
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "runArgs": [
+        "--init",
+        "--ipc=host",
+        "--privileged"
+    ],
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+        "source=/dev,target=/dev,type=bind"
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}"
+    },
+    "forwardPorts": [8888],
+    "portsAttributes": {
+        "8888": { "label": "Jupyter" }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ],
+            "settings": {
+                "cmake.generator": "Ninja",
+                "python.defaultInterpreterPath": "/usr/bin/python3"
+            }
+        }
+    }
+}

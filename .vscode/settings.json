@@ -1,0 +1,14 @@
+{
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.extraPaths": [
+        "/usr/local/lib/python3.12/dist-packages"
+    ],
+    "python.terminal.activateEnvironment": false,
+    "C_Cpp.default.includePath": [
+        "${default}",
+        "/usr/local/include/opencv5"
+    ],
+    "C_Cpp.default.cppStandard": "c++17",
+    "cmake.sourceDirectory": "/workspace/examples/00_check"
+}
