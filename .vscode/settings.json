@@ -10,5 +10,11 @@
         "/usr/local/include/opencv5"
     ],
     "C_Cpp.default.cppStandard": "c++17",
-    "cmake.sourceDirectory": "/workspace/examples/00_check"
+    "cmake.sourceDirectory": "/workspace/examples/00_check",
+    "editor.inlineSuggest.enabled": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "chat.disableAIFeatures": true
 }
